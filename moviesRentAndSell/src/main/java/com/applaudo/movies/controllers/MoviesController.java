@@ -32,7 +32,7 @@ public class MoviesController {
 	
 	
 	
-
+	@PreAuthorize("permitAll")
 	@GetMapping("/movies")
 	public List<movie> retrieveAllMovies() {
 		return moviesRepository.findAll();
@@ -86,7 +86,7 @@ public class MoviesController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
 	@GetMapping("/movies/availability")
 	public ResponseEntity<List<movie>> findByAvailability() {
 		try {
@@ -96,6 +96,21 @@ public class MoviesController {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 			return new ResponseEntity<>(moviesAvailability, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@GetMapping("/movies/unavailability")
+	public ResponseEntity<List<movie>> findByUnavailability() {
+		try {
+			List<movie> moviesUnavailability = moviesRepository.findByAvailability(false);
+
+			if (moviesUnavailability.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(moviesUnavailability, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
