@@ -38,7 +38,7 @@ public class MoviesController {
 		return moviesRepository.findAll();
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	
 	@GetMapping("/movies/{id}")
 	public ResponseEntity<movie> getMoviesById(@PathVariable("id") int id) {
 		Optional<movie> movieData = moviesRepository.findById(id);
@@ -50,6 +50,7 @@ public class MoviesController {
 		}
 	}
 
+	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/movies")
 	public ResponseEntity<movie> createMovies(@RequestBody movie movie) {
 
@@ -60,7 +61,7 @@ public class MoviesController {
 		return ResponseEntity.created(location).build();
 
 	}
-
+	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/movies/{id}")
 	public ResponseEntity<movie> updateMovies(@RequestBody movie movie, @PathVariable int id) {
 
@@ -75,7 +76,7 @@ public class MoviesController {
 
 		return ResponseEntity.noContent().build();
 	}
-
+	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/movies/{id}")
 	public ResponseEntity<HttpStatus> deleteMovie(@PathVariable("id") int id) {
 		try {
