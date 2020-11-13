@@ -29,7 +29,8 @@ public class MoviesServices {
 	//get all movies
 	@Transactional()
 	public List<movie> findAll() {
-
+		
+		//if role is User show only availability movies
 		if (RolCapute().equals(_ROLE)) {
 
 			return findByAvailability(true);
