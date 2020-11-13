@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2020 at 06:41 AM
+-- Generation Time: Nov 13, 2020 at 01:16 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -98,7 +98,8 @@ INSERT INTO `users` (`id`, `password`, `rol`, `username`) VALUES
 (2, 'prueba', 'ROLE_ADMIN', 'nelson'),
 (3, 'prueba', 'ROLE_ADMIN', 'administrador'),
 (5, '$2a$10$woIexneuejyUrSv6jpVkXuQPbt660PF7Q/PVCALexRVgXX.Ok/keW', 'ROLE_ADMIN', 'antonio'),
-(6, '$2a$10$0C/er/OFVLO3dySQpY72LuOD0z4yOXDqcfOKwsQ.frBzN2zUCw42W', 'ROLE_USER', 'pedro');
+(6, '$2a$10$0C/er/OFVLO3dySQpY72LuOD0z4yOXDqcfOKwsQ.frBzN2zUCw42W', 'ROLE_USER', 'pedro'),
+(7, '$2a$10$mhbyTxTrMu9x16pHARw4uOQUZkivUeMVcM8YU9X9p7mDIOnXtm60.', 'ROLE_USER', 'user');
 
 --
 -- Indexes for dumped tables
@@ -124,7 +125,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
