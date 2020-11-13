@@ -13,7 +13,7 @@ public class movie {
 	
 	@Id
 	@GeneratedValue
-	int id;
+	long id;
 	@Column(name = "title")
 	String title;
 	@Column(name = "description")
@@ -29,10 +29,10 @@ public class movie {
 	@Column(name = "availability")
 	boolean availability;
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getTitle() {
