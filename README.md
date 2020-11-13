@@ -6,7 +6,7 @@
 
 2 upgrade pom xml 
 
-3 import the database using your preference tool, could be xammp or MySQL Workbench
+3 import the database using your preference tool, could be xammp or MySQL Workbench (path:main/resource/moviesdb)
 
 # admin auth: user:antonio  pass: papa
 
